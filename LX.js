@@ -1,7 +1,7 @@
 /**
  * Created by lx on 2017/7/10.
  */
-
+var d = document;
 /*
     Ajax对象
     url:文件地址
@@ -33,8 +33,19 @@ function Ajax(url,suc,err){
             }
         }
     }
-}
+};
 
 /*
     下拉框
  */
+
+function DropDown(id,sanjiao){
+    var sj = $(".sanjiao");
+    var box = $("#ul");
+    var ulShow;
+    sj.click(function(){
+       alert('111')
+    });
+
+}
+
