@@ -23,7 +23,7 @@
 }
 
 /*下拉框*/
-#drop_box{
+.drop_box{
     display: inline-block;
 }
 
@@ -49,21 +49,30 @@
 .drop_down .sanjiao_bottom {
     margin-left: 30px;
 }
-#drop_box ul{
+.drop_box #ul{
     margin: 0;
     padding: 0;
     list-style: none;
-    /*display: none;*/
-    opacity: 0;
+    display: none;
     bottom: 0;
-    background: red;
     width: 100%;
 }
-#drop_box .ul_show{
-    /*display: block;*/
-    opacity: 1;
+.drop_box .ul_show{
+    display: block!important;
 }
-#drop_box ul li{
+.drop_box ul li {
+    background-color: #000;
+    color:#fff;
     text-align: left;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+.drop_box ul li:hover{
+    background-color: #E6E6E6;
+    color:#000;
+}
+.drop_box ul li.active{
+    background-color: #E6E6E6;
+    color:#000;
 }
 
