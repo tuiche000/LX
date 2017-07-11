@@ -62,7 +62,10 @@ function DropDown(){
             }
         }
     });
-
+    li.click(function(){
+        var val = $(this).text();
+        input.val(val);
+    })
 
     var index1;
     //键盘按下
