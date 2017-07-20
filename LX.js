@@ -3,10 +3,10 @@
  */
 var d = document;
 /*
-    Ajax对象
-    url:文件地址
-    suc:响应成功回调函数
-    err:响应失败回调函数
+ Ajax对象
+ url:文件地址
+ suc:响应成功回调函数
+ err:响应失败回调函数
  */
 function Ajax(url,suc,err){
     //创建XMLHttpRequest对象
@@ -36,9 +36,8 @@ function Ajax(url,suc,err){
 };
 
 /*
-    下拉框
+ 下拉框
  */
-
 function DropDown(){
     var sj = $(".sanjiao");
     var input = $("#input");
@@ -102,3 +101,47 @@ function DropDown(){
 
 }
 
+/*
+ 验证码
+ id:元素的ID
+ len:验证码长度
+ Val:input的值
+ */
+function captcha(id,len){
+    this.checkCode = d.getElementById(id);
+    this.codeLenght = len; //验证码的长度
+    this.codeData =
+        [
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+
+        ]   //所有候选组成验证码的字符，当然也可以用中文的
+}
+captcha.prototype.createCode = function(){
+
+    this.code ="";
+    for(var i = 0; i<this.codeLenght; i++){
+        this.charNum = this.codeData[Math.floor(Math.random() * this.codeData.length)];
+        this.code += this.charNum;
+    }
+    if(this.checkCode){
+        this.checkCode.className = "code";
+        this.checkCode.innerHTML = this.code;
+    }
+}
+captcha.prototype.checkCaptcha = function(val){
+    this.inputCode = d.getElementById(val).value;
+    console.log(this.inputCode.toUpperCase())
+    console.log(this.code.toUpperCase())
+    if(this.inputCode.length <= 0){
+        alert('请输入验证码');
+        return false;
+    }
+    if((this.inputCode.toUpperCase()) != (this.code.toUpperCase())){
+        alert('输入验证码有误')
+        this.createCode();
+        this.inputCode.value="";
+        return false;
+    }
+    alert('验证码正确');
+
+};

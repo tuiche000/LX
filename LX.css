@@ -1,6 +1,29 @@
 *{
     transition: all 1s ease;
 }
+
+/*验证码*/
+.code
+{
+    background:url(code_bg.jpg);
+    font-family:Arial;
+    font-style:italic;
+    color:blue;
+    font-size:30px;
+    border:0;
+    padding:2px 3px;
+    letter-spacing:3px;
+    font-weight:bolder;
+    float:left;
+    cursor:pointer;
+    width:150px;
+    height:60px;
+    line-height:60px;
+    text-align:center;
+    vertical-align:middle;
+}
+
+
 /*三角形的通用属性*/
 .sanjiao{
     display: inline-block;
